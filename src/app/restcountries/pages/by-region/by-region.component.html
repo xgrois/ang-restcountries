@@ -1,0 +1,32 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+    <h3>Search by Region <small>{{selectedRegion | titlecase}}</small></h3>
+
+    <hr>
+    
+    <h5>Select region</h5>
+    
+    <div class="row">
+        <div class="col">
+            <button 
+                *ngFor="let r of regions" 
+                (click)="search(r)" 
+                [class]="getCSSButtonClass(r)" 
+                >
+                {{r | titlecase}}
+            </button>
+        </div>
+    </div>
+    
+</div>
+
+<hr>
+
+<div *ngIf="notFound" class="alert alert-danger">
+    <p>Search term "{{selectedRegion}}" not found</p>
+</div>
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-countries-table [countries]="countries"></app-countries-table>
+    </div>
+</div>

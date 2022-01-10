@@ -1,0 +1,9 @@
+<form (ngSubmit)="search()" autocomplete="off">
+    <input
+        [(ngModel)]="searchTerm"
+        (input)="onKeyInput($event)"
+        class="form-control"
+        type="text"
+        name="searchTerm"
+        [placeholder]="placeholder">
+</form>
